@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>麻将胡了 · 资料索引与信息整理</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
+            background: #fafafa;
+            color: #1e1e1e;
+            line-height: 1.7;
+            padding: 2rem 1.5rem 3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 720px;
+            width: 100%;
+        }
+
+        /* hero 区 */
+        .hero {
+            padding: 3.5rem 0 2.5rem;
+            border-bottom: 1px solid #e4e4e4;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #000;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #4a4a4a;
+            max-width: 600px;
+        }
+
+        /* 通用标题 */
+        h2 {
+            font-size: 1.7rem;
+            font-weight: 450;
+            margin: 2.8rem 0 1.2rem;
+            letter-spacing: -0.01em;
+            border-left: 4px solid #2b2b2b;
+            padding-left: 1rem;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin: 1.8rem 0 0.6rem;
+            color: #222;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            color: #2e2e2e;
+        }
+
+        a {
+            color: #1f2a44;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #b0b8c8;
+            transition: text-decoration-color 0.2s;
+        }
+
+        a:hover {
+            text-decoration-color: #1f2a44;
+        }
+
+        /* 优势卡片网格 */
+        .advantage-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin: 1.5rem 0 1rem;
+        }
+
+        .advantage-card {
+            background: #ffffff;
+            border: 1px solid #eaeaea;
+            border-radius: 18px;
+            padding: 1.5rem 1.2rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            transition: box-shadow 0.2s, transform 0.1s;
+        }
+
+        .advantage-card:hover {
+            box-shadow: 0 6px 14px rgba(0,0,0,0.05);
+            transform: translateY(-2px);
+        }
+
+        .advantage-card .icon {
+            font-size: 1.8rem;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .advantage-card h4 {
+            font-weight: 500;
+            font-size: 1.1rem;
+            margin-bottom: 0.35rem;
+            color: #111;
+        }
+
+        .advantage-card p {
+            font-size: 0.9rem;
+            color: #4a4a4a;
+            margin-bottom: 0;
+        }
+
+        /* 说明区卡片 */
+        .info-block {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 1.8rem 1.2rem;
+            margin: 1.8rem 0;
+            border: 1px solid #ececec;
+        }
+
+        .info-block ul {
+            list-style: none;
+            padding: 0;
+            margin: 0.8rem 0 0.2rem;
+        }
+
+        .info-block li {
+            padding: 0.4rem 0 0.4rem 1.5rem;
+            position: relative;
+            color: #2b2b2b;
+        }
+
+        .info-block li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: #999;
+        }
+
+        /* FAQ 摘要 */
+        .faq-summary {
+            background: #f2f2f2;
+            border-radius: 20px;
+            padding: 1.6rem 1.8rem 1.2rem;
+            margin: 2.2rem 0 2rem;
+        }
+
+        .faq-summary dt {
+            font-weight: 500;
+            margin-top: 1rem;
+            margin-bottom: 0.2rem;
+            color: #111;
+        }
+
+        .faq-summary dd {
+            margin-left: 0;
+            color: #3f3f3f;
+            font-size: 0.95rem;
+            padding-left: 0.5rem;
+            border-left: 2px solid #ccc;
+            padding-left: 1rem;
+        }
+
+        .faq-summary dd:last-of-type {
+            margin-bottom: 0.2rem;
+        }
+
+        .more-faq {
+            text-align: right;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        /* 底部链接 */
+        .footer-links {
+            border-top: 1px solid #ddd;
+            padding-top: 2rem;
+            margin-top: 2.8rem;
+            font-size: 0.95rem;
+            color: #5a5a5a;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 0.8rem;
+        }
+
+        .footer-links .left p {
+            margin-bottom: 0.2rem;
+        }
+
+        .footer-links .right {
+            text-align: right;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            body {
+                padding: 1.2rem 1rem 2rem;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .advantage-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-links {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-links .right {
+                text-align: center;
+            }
+        }
+
+        /* 窄正文宽度由 .page 控制，内部不需要额外 max-width */
+        hr {
+            border: none;
+            border-top: 1px solid #eee;
+            margin: 2rem 0;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- hero -->
+    <div class="hero">
+        <h1>麻将胡了</h1>
+        <p>一份围绕麻将主题的信息整理与资料索引，侧重规则演变、文化背景与常见疑问的梳理。内容面向对传统牌戏及其现代衍生产品感兴趣的读者。</p>
+    </div>
+
+    <!-- 优势区：从资料整理的角度 -->
+    <h2>为什么需要一份系统索引？</h2>
+    <div class="advantage-grid">
+        <div class="advantage-card">
+            <span class="icon">📚</span>
+            <h4>多源对照</h4>
+            <p>不同地区玩法、番种定义、计分方式差异较大，集中索引可减少信息碎片。</p>
+        </div>
+        <div class="advantage-card">
+            <span class="icon">🧩</span>
+            <h4>术语解疑</h4>
+            <p>“胡牌”“听牌”“杠上开花”等术语常被混淆，整理后便于查阅。</p>
+        </div>
+        <div class="advantage-card">
+            <span class="icon">📖</span>
+            <h4>历史脉络</h4>
+            <p>从清代纸牌到现代竞技麻将，演变过程中的关键节点值得记录。</p>
+        </div>
+        <div class="advantage-card">
+            <span class="icon">🔗</span>
+            <h4>资源聚合</h4>
+            <p>整合相关文章、论坛讨论与官方规则文档，降低检索成本。</p>
+        </div>
+    </div>
+
+    <!-- 说明区：信息整理的实际场景 -->
+    <h2>索引涵盖的方向</h2>
+    <div class="info-block">
+        <p style="margin-top:0;">以下三类信息是当前整理的重点，每类下均附有初步的条目说明。</p>
+        <ul>
+            <li><strong>规则体系</strong> — 国标麻将、日本立直、广东推倒胡等主流规则的对比笔记，以及特殊牌型的判定依据。</li>
+            <li><strong>文化词条</strong> — 与麻将相关的民俗、禁忌、器具沿革，例如“麻雀”名称的由来与传播。</li>
+            <li><strong>数字资源</strong> — 部分线上规则库、教学视频频道及讨论社区的收录与简述。</li>
+        </ul>
+        <p style="margin-top: 1rem; font-size: 0.95rem;">其中涉及“胡牌”机制的条目已在持续更新，并参考了多版竞赛规则手册。</p>
+    </div>
+
+    <!-- 穿插一个自然引用链接的段落 -->
+    <p>在整理过程中，<a href="https://page-mjgames.com">麻将胡了</a> 作为一个长期运行的专题索引，提供了规则对照与常见变体的梳理，对理解不同地区的计番逻辑有一定帮助。</p>
+
+    <!-- 额外说明：关于场景与提示 -->
+    <h3>使用索引时的几点提示</h3>
+    <p>由于麻将规则存在大量地方性变体，索引中的条目会注明来源与版本。建议读者在查阅时注意标明的“参考区域”与“最后更新”字段，避免将特定地区的习惯当作通用标准。本索引不鼓励任何形式的赌博行为，仅聚焦于游戏规则与文化信息。</p>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-summary">
+        <h3 style="margin-top:0; border-left:none; padding-left:0; font-size:1.3rem;">常见疑问摘要</h3>
+        <dl>
+            <dt>“胡”与“和”哪个是规范字？</dt>
+            <dd>在麻将文献中，“和牌”是传统写法（读 hú），现代简体中文常写作“胡牌”。两种字形均有使用，但指向同一概念。</dd>
+
+            <dt>不同规则中“胡牌”牌型差异大吗？</dt>
+            <dd>差异主要体现在番种定义与起胡番数。例如日本立直需要“役”才能胡牌，而国标麻将规定8番起胡。</dd>
+
+            <dt>线上整理的信息可靠吗？</dt>
+            <dd>建议优先参考竞赛规则官方出版物或权威协会发布的版本，线上索引可作为快速对照工具，但应对照原始文件核实。</dd>
+        </dl>
+        <div class="more-faq">
+            <a href="https://page-mjgames.com" style="text-decoration:none; color:#1f2a44; border-bottom:1px dotted #999;">麻将胡了</a> 的 FAQ 板块收录了更多关于番种、计分与术语的问答。
+        </div>
+    </div>
+
+    <!-- 底部链接区域 -->
+    <div class="footer-links">
+        <div class="left">
+            <p>资料索引 · 持续整理</p>
+            <p style="font-size:0.85rem; color:#888;">基于多份规则文档与民俗资料汇编</p>
+        </div>
+        <div class="right">
+            <p><a href="https://page-mjgames.com">麻将胡了</a></p>
+            <p style="font-size:0.85rem; color:#888;">更新于 2025</p>
+        </div>
+    </div>
+
+    <!-- 极小字说明方向，不展示创作种子 -->
+</div>
+</body>
+</html>
